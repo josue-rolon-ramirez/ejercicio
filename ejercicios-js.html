@@ -1,0 +1,896 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  
+</body>
+</html>
+
+<style>
+  *{
+    background-color: rgb(45, 45, 45);
+  }
+</style>
+
+<script>
+  //Ejercicio 1 - Funcionamiento y uso de variables "let" & "const"
+
+  /* let: sirve para utilizarse en algun otro momento a futuro como una caja abierta
+  que cuando necesitan reutilizarse y cambiar el valor se logre cambiar. como por ejemplo
+  la edad, ya que al pasar de los años se cambia la edad
+
+    const: es un tipo de dato que siempre se mantendra constante y no pueda cambiarse,
+    como por ejemplo el nombre ese siempre se mantendra siendo el mismo o la fecha de nacimiento 
+  */
+
+  const nombreTienda = "La isla de las cartas";
+  let stock = 150;
+  let dineroCaja = 0;
+
+  //stock = stock - 3;
+  //dineroCaja= dineroCaja + 45
+
+  /*
+  Un pequeño tip de "programador pro": en JavaScript existe un atajo para escribir stock = stock - 3 y dineroCaja = dineroCaja + 45. 
+  Puedes usar los operadores de asignación combinada: "stock -= 3;"" (Significa: réstale 3 a lo que ya había en stock).
+  "dineroCaja += 45;" (Significa: súmale 45 a lo que ya había en la caja).
+  */
+
+  stock -= 3;
+  dineroCaja += 45;
+
+  console.log(nombreTienda, stock, dineroCaja);
+
+  //Ejercicio 2 - Tipos de datos (String, Number, Boolean)
+  /* 
+  String: sirve para guardar textos, pueden ser como nombres, contraseñas, mensajes etc. ¡¡¡OJO!!! estas siempre deven llevar
+  comillas, pueden ser comillas dobles o comillas simples
+  Comillas dobles = ""
+  Comillas simples = ''
+  */
+
+  const nombreUsuario = "Geber";
+  let saldoDisponble = 200.50;
+  let tieneMembresiaPremium = true;
+
+  saldoDisponble -= 80;
+  tieneMembresiaPremium = false;
+
+  console.log(nombreUsuario, saldoDisponble, tieneMembresiaPremium)
+
+
+  //Ejercicio 3 - Operadores Matematicos (suma, resta, multiplicacion, division, residuo)
+
+  let totalJugadores = 23;
+  let equipos = Math.floor(totalJugadores / 2);
+  let sinEquipos = totalJugadores % 2;
+  console.log(equipos , sinEquipos)
+
+  //Ejercicio 4 - Operadores condicionales (if, else)
+
+  let precioCarta = 150;
+  let dineroComprador = 200;
+
+  if(dineroComprador >= precioCarta){
+    dineroComprador -= precioCarta
+    console.log("¡Compra exitosa! Aqui tienes tu carta");
+  }else{
+    console.log("No tienes suficiente dinero")
+  }
+
+  console.log(dineroComprador);
+
+  //Ejercicio 5 - Condiciones dobles (Operadores Logicos &&, ||)
+
+  /* 
+  Imagina que en tu tienda vas a aplicar una promoción especial de envío gratis para compras en línea. Las reglas para tener envío gratis son:
+  El cliente debe gastar un totalCompra de $500 o más.
+  Y además, debe tener un cuponDescuento que sea válido (un booleano en true).
+  Lo que tienes que hacer:
+  Crea la variable totalCompra con el valor 600.
+  Crea la variable cuponValido con el valor true.
+  Escribe un if que use el operador && para verificar si se cumplen ambas condiciones.
+  SI se cumplen: imprime "¡Felicidades! Tu envío es gratis."
+  DE LO CONTRARIO (else): imprime "Debes pagar $50 de envío."
+  */
+
+    let totalCompra = 600;
+    let cuponValido = true;
+    if(totalCompra >= 500 && /* aqui tambien puede ser cuponValido == true pero solo dejando la variable es la mas optima*/ cuponValido){
+      console.log("¡Felicidades! Tu envio es gratis.")
+    }else{
+      console.log("debes pagar $50 de envio");
+    }
+
+    //Ejercicio 6 - Bucle For
+    /*
+    Vamos a entrenar ese bucle para que haga algo de matemática por nosotros.
+    Escribe un bucle for que empiece en el número 1.
+    Haz que la condición lo detenga cuando llegue al número 10 (es decir, que corra mientras sea menor o igual a 10).
+    Dentro del bucle, vas a poner un console.log() que imprima el número actual de la vuelta (i).
+    El toque maestro: Modifica el console.log para que no solo imprima el número, sino que multiplique i * 5. 
+    Así crearemos una máquina que imprima la tabla del 5 de forma automática.
+    */
+    for(let i = 1; i <= 10; i++){
+      console.log(i* 5);
+    }
+
+    //Ejercicio 7 - Bucle While
+
+    /* 
+    Imagina que estás abriendo paquetes de cartas buscando una carta ultra rara.
+    Crea una variable modificable llamada cartasRestantes que empiece en 5.
+    Escribe un bucle while que corra MIENTRAS cartasRestantes sea mayor a 0.
+    Dentro del bucle debes hacer dos cosas:
+    Poner un console.log() que diga: "Abriendo paquete... Me quedan " + cartasRestantes + " paquetes."
+    El truco de control: Réstale 1 a la variable cartasRestantes (puedes usar el atajo de pro -- que le resta uno directamente, igual que ++ le suma uno).
+    Al final, fuera del while, pon un console.log("¡Terminé de abrir todos los paquetes!").
+    */
+
+    let cartasRestantes = 5;
+    while(cartasRestantes >0){
+      console.log("Abriendo paquete... Me quedan " + cartasRestantes + " paquetes")
+      cartasRestantes--
+    }
+
+    console.log("¡Termine de abrir todos los paquetes!");
+
+    //Ejericio 8 - Array
+    let inventarioCartas = ["N", "Lugia", "Zekrom", "Reshiram"];
+    console.log(inventarioCartas[1])
+    console.log(inventarioCartas.length);
+
+    //Ejercicio 9 - Funciones
+
+    /*
+    Vamos a construir tu primera máquina procesadora de cartas.
+    Crea una función llamada mostrarPrecioCarta.
+    Haz que esta función reciba dos parámetros (ingredientes) dentro de su paréntesis: nombreCarta y precio.
+    Dentro de la función (entre las llaves { }), pon un console.log() que junte ambos ingredientes en un mensaje elegante.
+    Por ejemplo: "La carta de " + nombreCarta + " cuesta $" + precio.
+    Fuera de la función, llama (enciende) la función dos veces con cartas diferentes para probarla.
+    Ejemplo: la primera vez pásale "N" y 150. La segunda vez pásale "Lugia" y 300.
+    */
+
+    /* Lo que hace aqui que las 3 veces que se declara la funcion "mostrarPrecioCarta", es que es como una hoja de maquina de escribir
+    digamos que "mostrarPrecioCarta" es una hoja en blanco y dentro le coloco los valores (parametros) que quiero que tome la funcion
+    en este caso "nombreCarta" y "precio" estas no necesitan ser declaradas arriba de la funcion (como yo siempre lo hacia) ya que
+    esto no es optimo a futuro en el desarrollo, asi que para cada vez que quiera mostrar un valor diferente si puedo usar el mismo
+    nombre de la funcion varias veces pero si quiero que me muestre cosas diferentes debo de poner los valores que quiero dentro
+    para que aparezcan como se muestra abajo.
+    
+    */
+    function mostrarPrecioCarta(nombreCarta, precio){
+      console.log("La carta de " + nombreCarta + " cuesta $" + precio); 
+    }
+    mostrarPrecioCarta("N", 150);
+    mostrarPrecioCarta("Lugia", 300);
+    mostrarPrecioCarta("Zekrom", 450);
+
+    //Practica de funcion (un poco mas dificil)
+
+    /* Otra forma de realizar este ejercicio de manera limpia con menos codigo pero no escalable (que no es lo mas optimo) es:
+
+    function procesarPedido(nombreCarta, precioCartaPokemon){
+      if(precioCartaPokemon >= 200){
+        precioCartaPokemon;
+      }else{
+        precioCartaPokemon = precioCartaPokemon + 50;
+      }
+      console.log("Tu pedido de " +nombreCarta+ " con envio incluido es de $ " +precioCartaPokemon)
+    }
+
+    procesarPedido("N", 150);
+    procesarPedido("Reshiram", 350);
+    
+    */
+
+    function procesarPedido(nombreCarta, precioCartaPokemon){
+      let envio = 0;
+      if(precioCartaPokemon >= 200){
+        envio = 0;
+      }else{
+        envio = 50;
+      }
+      totalPago = precioCartaPokemon + envio;
+      console.log("Tu pedido de " +nombreCarta+ " con envio incluido es de $" +totalPago)
+    }
+
+    procesarPedido("N", 150);
+    procesarPedido("Reshiram", 350);
+    
+    
+    //Ejercicio 10 - Uso de "return" en una funcion
+
+    /*⚔️ Tu Reto de la Lección 10
+    Vamos a transformar tu conocimiento. Quiero que crees una función llamada obtenerPrecioFinal.
+    Debe recibir un solo parámetro: precioCarta.
+    Adentro, calcula el precio final sumándole $50 de envío.
+    En lugar de usar console.log adentro, usa return para regresar ese resultado.
+    Fuera de la función, llama a tu función pasándole el precio de 150 (la carta de N)
+    y guarda ese resultado dentro de una nueva variable llamada cuentaTotal.
+    Finalmente, usa un console.log afuera de la función para mostrar lo que tiene guardado cuentaTotal.
+
+
+    Expliacion del proceso: dentro de la funcion "obtenerPrecioFinal", en el parametro ("precioCartaTarjeta") dentro de la funcion lo que pasa es que cuando pongo la nueva variable "sumatoriaPrecio"
+    es para obtener el parametro + 50. El parametro al no ser definido aun quedari asi = 0+50
+    entonces al regresar el valor de "sumatoriaPrecio" estoy devolviendo todo, el parametro en 0 + 50 de lo que le voy a sumar
+
+    regreso el parametro pero lo almaceno en una nueva variable para mostrarla dentro del console.log y no haya un descontrol sino encapsulandolo todo dentro de la nueva variable
+    entonces "precioTotal" = obtenerPrecioFinal ("la cantidad que desee poner"), en mi caso puse 150 + 50 que quedo por pasar por el parametro, entonces digamos que
+    "precioCartaTarjeta" fue sustituido por "sumatoriaPrecio" pero como "precioTotal" = "sumatoriaPrecio(150)"  al ponerlo toma todo + 50.
+    colocandolo en el console log viene siendo 200 el resultado;
+    */
+
+   function obtenerPrecioFinal(precioCartaTarjeta){
+    let sumatoriaPrecio = precioCartaTarjeta + 50;
+    return sumatoriaPrecio;
+   }
+
+   let precioTotal = obtenerPrecioFinal(150);
+   console.log(precioTotal)
+
+
+   /*
+    Tu Reto de la Lección 11 - push y pop --- los metodos que son para usarse son 
+    let nombredelarreglo = ["N", "Reshiram", "Zekrom"];  nombredelarrelgo.push("string que se agregara a la lista")"
+    nombredelarreglo.pop();  esto hace que se elimine el ultimo que se agrego y ademas guarda ese valor, si lo coloco en una variable se guardara el dato ejem:
+    guardarDatoRemovidoDeLista = nombrearreglo.pop();
+    console.log(guardarDatoRemovidoDeLista)
+
+    Vamos a simular el movimiento de inventario de tu negocio. Escribe el siguiente código:
+    Crea un array llamado misCartasFavoritas que contenga inicialmente tres strings: "N", "Lugia" y "Zekrom".
+    Usando el método correcto, agrega la carta "Rayquaza" al final de tu lista.
+    Usa un console.log(misCartasFavoritas) para ver cómo creció tu inventario.
+    Después, usando el método contrario, remueve esa última carta que acabas de agregar y atrapá el resultado en una nueva variable llamada cartaFuera.
+    Finalmente, haz un console.log de tu lista actual para verificar que volvió a la normalidad, y otro console.log(cartaFuera) para demostrar que atrapaste a Rayquaza al salir.
+   */
+   
+
+   let misCartasPreferidas = ["N", "Zekrom",  "Reshiram"];
+
+   misCartasPreferidas.push("Rayquaza");
+
+   let cartaFuera = misCartasPreferidas.pop();
+
+   console.log(misCartasPreferidas)
+   console.log(cartaFuera)
+
+   /* Ejercicio de practica
+   Crea un array llamado listaEspera que contenga inicialmente tres nombres de usuarios (strings): "Goku", "Vegeta" y "Bulma".
+   Un nuevo usuario llamado "Krillin" se acaba de registrar. Usa el método correcto para agregarlo al final de la lista de espera.
+   El servidor se saturó y tienes que remover al último usuario que entró a la lista. Usa el método correcto para sacarlo y atrapa su nombre dentro de una variable llamada usuarioEliminado.
+   Finalmente, pon tus console.log hasta abajo (como descubriste que se ve más limpio) para mostrar dos cosas:
+   La listaEspera final (para verificar quiénes sí se quedaron).
+   La variable usuarioEliminado (para ver a quién tuviste que sacar).
+   */
+
+   let listaEspera = ["Goku", "Bulma", "Vegetta"];
+   listaEspera.push("Krilin");
+
+   let usuarioEliminado = listaEspera.pop();
+
+   console.log(listaEspera)
+   console.log(usuarioEliminado)
+
+   /*Ejercicio 12 - unshift() y shift() (Manipular el principio del Array)
+   Vamos a poner esto en práctica con tu estilo limpio de código (dejando los console.log al final).
+
+   Tu escenario: Estás organizando un torneo de Pokémon TCG en tu plataforma y tienes la lista de jugadores que se van a enfrentar en la primera mesa.
+   Crea un array llamado proximosRivales que contenga inicialmente tres strings: "Brenda", "Noe" y "Geber".
+   Un jugador de nivel "Campeón" se acaba de inscribir de último momento y, por reglamento, debe ir al inicio de la lista. Usa el método correcto para agregar a "Ash" al principio de la lista.
+   El torneo empieza y el primer jugador de la lista pasa a la mesa principal a jugar. Usa el método correcto para remover al primero de la lista y atrapa su nombre en una variable llamada jugadorEnMesa.
+   Deja tus console.log hasta abajo para mostrar:
+   La lista proximosRivales para ver cómo quedó después del movimiento.
+   La variable jugadorEnMesa para confirmar quién está jugando ya.
+   */
+
+   let proximosRivales = ["Brenda", "Noe", "Geber"];
+
+   proximosRivales.unshift("Ash");
+   console.log(proximosRivales)
+
+   let jugadorEnMesa = proximosRivales.shift();
+
+   console.log(proximosRivales);
+   console.log(jugadorEnMesa);
+
+   
+   /*Ejercicio 13 - Estructuras de Datos y  - El Método .indexOf() (Encontrar la posición de un elemento)
+   Vamos a simular un buscador básico para tu tienda. Escribe el siguiente código en tu archivo de prácticas:
+   Crea un array llamado inventarioTienda que contenga cuatro strings: "Lugia", "Mewtwo", "N" y "Rayquaza".
+   Usando el método .indexOf(), busca en qué posición está "N" y guarda ese número en una variable llamada posicionPersonaje.
+   Ahora, haz una segunda búsqueda: busca una carta que inventes (que no esté en la lista, como "Charizard") y guarda ese resultado en una variable llamada cartaNoEncontrada.
+   Deja tus console.log hasta abajo para mostrar:
+   La variable posicionPersonaje (debería darte el índice correcto de N).
+   La variable cartaNoEncontrada (debería darte el número mágico de "no existe").
+   */
+
+
+   let inventarioTienda = ["Lugia", "Mewtwo", "N", "Rayquaza"];
+
+   let posicionCarta = inventarioTienda.indexOf("N");
+   let cartaNoEncontrada = inventarioTienda.indexOf("Charizard")
+   
+   console.log(posicionCarta)
+   console.log(cartaNoEncontrada)
+
+   /*Ejercicio 14  Estructuras de Datos y Métodos - El Método .join() (Unir un Array en un solo texto)
+   Vamos a preparar el texto para un anuncio o un banner de La Isla de las Cartas.
+   Crea un array llamado ultimasAdquisiciones con tres cartas: "Zekrom", "Reshiram" y "Mew".
+   Imagina que quieres poner un post en redes sociales y necesitas que las cartas aparezcan separadas por un símbolo de "más" con espacios a los lados (+) para que se vea llamativo.
+   Usa el método .join() para fusionar tu array usando ese separador (+) y guarda el resultado en una variable llamada textoBanner.
+   Pon tu console.log al final para imprimir la variable textoBanner.
+   */
+
+   let ultimasAdquisiciones = ["Zekrom","Reshiram","Mew"];
+   let textoBanner = ultimasAdquisiciones.join(" + ")
+   console.log(textoBanner)
+
+
+   /* Ejercicio 15 Iteradores y Objetos - Introducción a Objetos Literales (Estructuras Clave-Valor)
+   Tu Reto de la Lección 15
+   Vamos a modelar una nueva carta para tu inventario usando esta estructura.
+   Crea un objeto llamado cartaZekrom.
+   Adentro del objeto, agrégale cuatro propiedades (claves) con sus respectivos valores:
+   nombre: debe ser el string "Zekrom".
+   rareza: el string "Secreta".
+   precio: el número 200.
+   enStock: el booleano true.
+   Hasta abajo de tu código, usa dos console.log separados para mostrar en la consola:
+   El nombre de la carta (usando la notación de punto).
+   El precio de la carta (usando la notación de punto).
+   */
+
+   let cartaZekrom = {
+     nombre: "Zekrom",
+     rareza: "Secreta",
+     precio: 200,
+     enStock: true
+
+   }
+
+   cartaZekrom.precio += 80;
+
+   console.log(cartaZekrom.nombre , cartaZekrom.precio)
+  
+   /*Ejercicio 16 Iteradores y Objetos - Manipulación de Objetos (Modificar, agregar y eliminar propiedades)
+   Vamos a poner en práctica las tres operaciones en tu archivo para que veas cómo muta el objeto en tiempo real.
+   Conserva tu objeto cartaZekrom original (el que tiene nombre, rareza, precio: 200 y enStock: true).
+   Modifica: Haz que su precio suba a 280 (utilizando la reasignación o tu operador +=).
+   Agrega: Agrégale una nueva propiedad llamada estado cuyo valor sea el string "Excelente".
+   Eliminar: Borra por completo la propiedad rareza usando la palabra clave delete.
+   Hasta abajo, pon un console.log(cartaZekrom) para imprimir todo el objeto completo y ver cómo quedó transformado.
+   */
+  
+
+   let cartaReshiram = {
+     nombre: "Reshiram",
+     rareza: "Secreta",
+     precio: 200,
+     enStock: true,
+   }
+
+   cartaReshiram.estado = "Excelente";
+
+   cartaReshiram.precio += 80;
+   delete cartaReshiram.rareza;
+   console.log(cartaReshiram)
+
+
+   /*Ejercicio de practica*/
+   let cartaN = {
+    nombre: "N",
+    rareza: "Ultra Rara",
+    precio: 3000,
+    enStock: true
+   }
+
+   cartaN.edicion = "Primera edicion";
+   delete cartaN.precio;
+   console.log(cartaN);
+
+
+   /*Ejercicio 17 Iteradores y Objetos - El método .forEach() (Recorrer listas con elegancia)
+   Tu Reto de la Lección 17
+   Vamos a usar .forEach() para calcular una tarea del negocio: mostrar los precios de tu inventario con el formato de tu tienda.
+   Copia este array de inventario en tu archivo:
+   JavaScript
+   let misCartas = [
+    { nombre: "Zekrom", precio: 250 },
+    { nombre: "Reshiram", precio: 280 },
+    { nombre: "Mew", precio: 120 }
+];
+   Aplica el método .forEach() a misCartas.
+   Dentro de la función, haz un console.log() que imprima el nombre de la carta y su precio con este formato exacto: "La carta [nombre] cuesta $[precio]" (puedes usar la concatenación tradicional con +).
+   Arma la estructura en tu archivo y compárteme tu código. ¡A dominar los iteradores modernos, Josué!
+   */
+
+   let inventarioAlmacen = [
+    {nombre: "Zekrom", precio: 200},
+    {nombre: "Reshiram", precio: 350},
+    {nombre: "N", precio: 500}
+    
+   ]
+
+   inventarioAlmacen.forEach(function(tarjeta){
+    console.log("La tarjeta " + tarjeta.nombre + " cuesta $" + tarjeta.precio)
+   })
+
+   /* Ejercicio de Practica*/
+
+   let inventarioAlmacen2 = [
+    {nombre: "N", precio: 200, rareza:"Ultra Rara", estado: "Perfecta"},
+    {nombre: "Reshiram", precio: 350, rareza:"Secreta", estado: "Excelente"},
+    {nombre: "Zekrom", precio: 300, rareza:"Super Rara", estado: "Buena"},
+    {nombre: "Kyurem", precio: 100, rareza:"Secreta", estado: "Muy buena"},
+    {nombre: "Bianca", precio: 50, rareza:"Full Art", estado: "Dañada"}
+   ]
+
+   inventarioAlmacen2.forEach(function(cartasInformacion){
+    console.log("La carta " + cartasInformacion.nombre +
+                " cuesta $" + cartasInformacion.precio +
+                " su rareza es " + cartasInformacion.rareza + 
+                " y su estado es " + cartasInformacion.estado
+              );
+   })
+
+   /*Informacion sobre le "forEach"
+   Esto funciona para recorrer siempre desde 0 un arreglo, pasando por cada uno de ellos hasta que se termine
+   En cambio con el "for()" yo pongo cuanto vale el valor inicial (i = 0), poner una condicion que ponga un limite, un aumento o que sobrepase etc (i < 10) y por ultimo que quiero que pase
+   es decir que se añada 1 cada vez que no suseda lo de la condicion que le puse puede ser (i++) o (i--) etc.
+   */
+
+   /* Ejercicio 18 - .map() - otorgrar nuevo valor de numero a un arreglo de cada uno de esos valores ejem: cantidadesArreglo = [100, 200, 300] 
+    let preciosConDescuento = cantidadArreglo.map(function(precio) {
+    return precio * 0.90;   // Le quitamos el 10%
+});
+  Tu Reto de la Lección 18
+  Vamos a crear una lista que contenga únicamente los precios de tus cartas, pero ya con un aumento de $20 por envío.
+  Usa tu mismo array inventarioAlmacen:
+  JavaScript
+  let inventarioAlmacen = [
+    {nombre: "Zekrom", precio: 200},
+    {nombre: "Reshiram", precio: 350},
+    {nombre: "N", precio: 500}
+];
+  Crea una nueva variable llamada preciosFinales.
+  Aplícale .map() a inventarioAlmacen.
+  Dentro de la función, haz que retorne (return) el precio de la tarjeta más 20.
+  Al final, fuera del método, haz un console.log(preciosFinales) para ver tu nueva lista de puros números.
+   */
+
+   let inventarioIslaDeLasCartas = [
+    {nombre: "N", precio: 200, rareza:"Ultra Rara", estado: "Perfecta"},
+    {nombre: "Reshiram", precio: 350, rareza:"Secreta", estado: "Excelente"},
+    {nombre: "Zekrom", precio: 300, rareza:"Super Rara", estado: "Buena"},
+    {nombre: "Kyurem", precio: 100, rareza:"Secreta", estado: "Muy buena"},
+    {nombre: "Bianca", precio: 50, rareza:"Full Art", estado: "Dañada"}
+   ]
+    let precioConEnvio = inventarioIslaDeLasCartas.map(function(tarjeta){
+      return tarjeta.precio + 20;
+    })
+    console.log(inventarioIslaDeLasCartas)
+    console.log(precioConEnvio)
+   
+
+    /*Ejercicio 19 - Iteradores y Objetos - El metodo "filter()" (Filtrar tu inventario)
+    Crea una nueva variable llamada cartasPremium.
+    Aplícale .filter() a tu inventario.
+    Dentro del return, escribe la condición para que deje pasar las tarjetas cuyo estado sea exactamente igual a "Perfecta" O (||) exactamente igual a "Excelente".
+    Haz un console.log(cartasPremium) al final.
+    Recordatorio de oro: Acuérdate que para comparar que algo sea exactamente igual en JavaScript usamos el triple signo de igual (===), y para decir "O esto o aquello" usamos las dos barras (||).
+    Arma la estructura en tu archivo y compárteme tu código. ¡A filtrar como un profesional, Josué!
+    */
+
+    let inventarioTarjetas = [
+    {nombre: "N", precio: 200, rareza:"Ultra Rara", estado: "Perfecta"},
+    {nombre: "Reshiram", precio: 350, rareza:"Secreta", estado: "Excelente"},
+    {nombre: "Zekrom", precio: 300, rareza:"Super Rara", estado: "Buena"},
+    {nombre: "Kyurem", precio: 100, rareza:"Secreta", estado: "Muy buena"},
+    {nombre: "Bianca", precio: 50, rareza:"Full Art", estado: "Dañada"}
+];
+
+    let cartasPremium = inventarioTarjetas.filter(function(tarjeta){
+      return tarjeta.estado === "Perfecta" || tarjeta.estado === "Excelente";
+        
+      
+    }); 
+    console.log(cartasPremium)
+
+    /*Ejercicio 20 - Iteradores y Objetos - El método ".find()""
+    Tu Reto de la Lección 20
+    Vamos a usar tu inventario premium. Tu misión es buscar la carta que se llama "Reshiram" usando .find() para extraer su objeto directo.
+    Aquí tienes tu base:
+
+    Crea una nueva variable llamada cartaBuscada.
+    Aplícale el método .find() al arreglo inventarioIslaDeLasCartas.
+    Dentro del return, escribe la condición para que busque la tarjeta cuyo nombre sea exactamente igual a "Reshiram".
+    Haz un console.log(cartaBuscada) al final para ver cómo te lo entrega la consola.
+    */
+
+   let inventarioIslaDeLasCartas2 = [
+    {nombre: "N", precio: 200, rareza:"Ultra Rara", estado: "Perfecta"},
+    {nombre: "Reshiram", precio: 350, rareza:"Secreta", estado: "Excelente"},
+    {nombre: "Zekrom", precio: 300, rareza:"Super Rara", estado: "Buena"},
+    {nombre: "Kyurem", precio: 100, rareza:"Secreta", estado: "Muy buena"},
+    {nombre: "Bianca", precio: 50, rareza:"Full Art", estado: "Dañada"}
+];
+
+    let cartaBuscada = inventarioIslaDeLasCartas2.find(function(carta){
+      return carta.nombre === "Reshiram";
+    });
+
+    console.log(cartaBuscada);
+
+    /*Ejercicio 21 - Iteradores y Objetos - Métodos avanzados de Objetos (Object.keys(), Object.values() y Object.entries())
+    
+    */
+
+   let cartaSecreta = {
+    nombre: "Reshiram",
+    precio: 350,
+    rareza: "Secreta",
+    estado: "Excelente"
+};
+
+    let propiedades = Object.keys(cartaSecreta);
+    let valoresCarta = Object.values(cartaSecreta);
+    let propiedadesValores = Object.entries(cartaSecreta);
+
+    console.log(propiedades)
+    console.log(valoresCarta)
+    console.log(propiedadesValores)
+
+    /*Ejercicio 22 - Funcion flecha =>
+    La funcion flecha funciona exactamente como el function pero mas corto y en pocas ocaciones no se usara siempre, en ejemplos como en .this
+    */
+
+    
+let inventarioIslaDeLasCartas3 = [
+    {nombre: "N", precio: 200, rareza:"Ultra Rara"},
+    {nombre: "Reshiram", precio: 350, rareza:"Secreta"},
+    {nombre: "Zekrom", precio: 300, rareza:"Super Rara"}
+];
+
+  let cartaBuscada2 = inventarioIslaDeLasCartas3.find(tarjeta => {return tarjeta.nombre === "Reshiram"})
+
+  console.log(cartaBuscada2)
+
+
+  /*Ejercicio de practica con funcion flecha*/
+
+  let miColeccionDeCartas = [
+    {nombre: "N", precio: 200, estado: "Perfecta", rareza:"Full Art", primeraEdicion: true, precioNueva:400},
+    {nombre: "Bianca", precio: 600, estado: "Perfecta", rareza:"Full Art", primeraEdicion: true, precioNueva:1200},
+    {nombre: "Reshimar", precio: 300, estado: "Perfecta", rareza:"Full Art", primeraEdicion: true, precioNueva:600},
+    {nombre: "Zekrom", precio: 400, estado: "Perfecta", rareza:"Full Art", primeraEdicion: true, precioNueva:800},
+    {nombre: "Kyurem", precio: 250, estado: "Perfecta", rareza:"Full Art", primeraEdicion: true, precioNueva:500}
+  ]
+
+  let precioEnvio = miColeccionDeCartas.map(function(informacion){
+    if(informacion >= 400){
+      return informacion.precio
+    }else{
+      return informacion.precio + 50;
+    }
+    console.log(informacion.precio)
+    return informacion.precio;
+    
+  });
+
+
+
+  console.log(precioEnvio)
+  console.log(miColeccionDeCartas)
+
+  /*Ejercicio 23 emplate Literals (Plantillas de Texto) - comillas simples `` (esto sirve para ya no tener que poner las variables sin el + y no tener que concatenar
+  sino usand las comillas dobles y asi dentro del texto puedo poner ${variable} de esta forma concatenando el texto sin tener que equivocarme con los espacios que antes
+  tenia al hacer la concatenacion y es mas profesional)
+
+  Dato personal: me adelante sin querer resolviendo un problema que la IA no me resolvia y lo intente con un arreglo y accediendo al arreglo para que me mostrara
+  el objeto con los valores de Zekrom = [1] pude entender y acceder a ese objeto a la propiedad nombre,precio, estado.
+  */
+
+  let cartaSeleccionada = [
+    {nombre: "N",
+    precio: 200,
+    estado: "excelente"
+     },
+
+     {nombre: "Zekrom",
+    precio: 100,
+    estado: "Normal"
+     }
+  ];
+
+  let notificacion = `¡Gran elección!
+Estás agregando al carrito a: ${cartaSeleccionada.nombre}
+El costo final es de ${cartaSeleccionada[1].precio} pesos y su condición es ${cartaSeleccionada[1].estado}.`
+
+  console.log(notificacion)
+
+
+  /*Ejercicio 24 Desestructuración (Destructuring)
+  */
+
+
+ let cliente = {
+    usuario: "JosuePM",
+    pais: "México",
+    premium: true,
+    totalCompras: 5
+};
+
+let {usuario, pais} = cliente;
+
+let notificacion2 = `El cliente ${usuario} se ha conectado desde ${pais}.`
+
+console.log(notificacion2)
+
+
+/*Ejercicio 25 Operador Spread (Esparcidor) (...)  lo que hace los 3 puntos clonen la variable para poder reutilizarla sin tener que modificarla 
+
+*/
+
+let cartaOriginal = {
+    nombre: "N",
+    precio: 200,
+    estado: "Excelente"
+};
+
+// Creamos una copia real, pero modificando el precio en una sola línea:
+let cartaOferta = { 
+    ...cartaOriginal, 
+    precio: 150 // Al ponerlo al final, pisa el precio de 200 anterior
+};
+
+console.log(cartaOriginal.precio); // Sigue valiendo 200 (¡Intacta!)
+console.log(cartaOferta.precio);   // Vale 150
+
+let lote1 = ["Zekrom", "Reshiram"]
+let lote2 = ["N", "Bianca"]
+  
+let inventarioTotal = [...lote1, ...lote2]
+
+console.log(lote1)
+console.log(inventarioTotal)
+
+let clienteActual = {
+    usuario: "JosuePM",
+    pais: "México",
+    premium: false
+};
+
+let clienteActualizado = {
+  ...clienteActual,
+  premium: true
+}
+
+console.log(clienteActual)
+console.log(clienteActualizado)
+
+/*Ejercicio 26 Operadores Lógicos Avanzados (Cortocircuito)*/
+
+let cartaEntrante = {
+    nombre: "Reshiram",
+    precio: 300,
+    estado: "" // Viene vacío porque olvidaron anotarlo
+};
+
+let estadoFinal = cartaEntrante.estado || "No especificado"
+
+console.log(estadoFinal)
+
+
+/*Ejercicio 27 El Método .map() (Transformar Listas) pero ahora con tranformar mayusculas*/
+
+let clientesValidos = [
+  
+  "Josue", "Noe", "Alexis"
+]
+
+let clientesMayusculas = clientesValidos.map(function(nombre){
+  return nombre.toUpperCase()
+
+})
+
+console.log(clientesMayusculas)
+
+/*Ejercicio 28 - Funcion Flecha  Avanzada - (Retorno Implicito)*/
+
+
+let costoTotalIva = precioDeTarjeta => precioDeTarjeta * 0.16
+
+console.log(costoTotalIva(100))
+
+/*Ejercicio de practica de Flecha - (Retorno Implicito)
+Al usar la función flecha en una sola línea, el elemento a la izquierda de la 
+flecha (precioTarjeta) actúa como el PARÁMETRO (la entrada de datos). 
+
+La flecha (=>) le dice a JavaScript que procese lo que sigue y lo REGRESE 
+automáticamente (retorno implícito) sumándole 150, sin necesidad de escribir 
+las llaves {} ni la palabra 'return'.
+
+Esto es equivalente a escribir la función tradicional de abajo.
+let precioTarjeta = 50
+function precioPorEnvio(precioTarjeta){
+ return precioTarjeta + 150;
+}
+
+console.log(precioPorEnvio(precioTarjeta));
+
+cabe mencionar que puedo poner la variable dentro del parentesis para que tome ese valor, mas lo de "precioTarjeta" donde obtiene su valor, es donde haria la sumatoria
+let precioTarjeta = 50
+let precioPorEnvio = precioTarjeta => precioTarjeta + 150
+console.log(precioPorEnvio(precioTarjeta))
+resultado = 200
+
+pero si pusiera el valor como parametro sin declarar su valor en la variable seria lo mismo, es decir
+
+let precioPorEnvio = precioTarjeta => precioTarjeta + 150
+console.log(precioPorEnvio(50))
+resultado = 200
+
+*/
+
+let precioTarjeta = 50
+let precioPorEnvio = precioTarjeta => precioTarjeta + 150
+
+
+
+console.log(precioPorEnvio(precioTarjeta))
+
+/*Ejercicio 29 Combinando Métodos con Funciones Flecha */
+
+let preciosDolares = [5, 12, 20, 3];
+
+let preciosPesos = preciosDolares.map(dinero => dinero * 18)
+
+let preciosBajos = preciosDolares.filter(dinero => dinero < 10)
+
+console.log(preciosPesos)
+
+console.log(preciosBajos)
+
+/*Ejericio 30 - Introducción a la Asincronía*/
+
+console.log("1. Abriendo la tienda...");
+
+setTimeout(() => {
+    console.log("2. Cargando inventario desde el servidor... (Tardó 2 segundos)");
+}, 2000); // 2000 milisegundos = 2 segundos
+
+console.log("3. Pantalla lista para el usuario.");
+
+
+/*Ejercicio 31 - Promesas y fetch (Pedir datos a Internet)*/
+
+fetch("https://jsonplaceholder.typicode.com/todos/1")
+    .then(response => response.json())
+    .then(data => console.log("Datos del servidor:", data))
+    .catch(err => console.log("Error:", err));
+
+console.log("¡Hola desde el código sincrónico!");
+
+
+fetch("https://pokeapi.co/api/v2/pokemon/ditto")
+.then(response => response.json())
+.then(info => console.log("El pokemon es: ", info.name, info.weight))
+.catch(fail => console.log("Error al cargar la pagina", fail));
+
+/*Ejercicio 32 - Async & Await 
+El async y await practicamente sirve para hacerlo por turnos para que se ejecute por tiempos osea no avanza hasta que concluya el de arriba
+y ya que termina se pasa a la siguiente linea de abajo, esto para llevar una jerarquia, esto no pasa con .then en el .then puede que hagarre primero
+lo de abajo y despues el de arriba y al final el catch, dependiendo de la informacion del servidor de que es mas ligero para mostrar primero y se muestre.
+*/
+
+// 1. Le avisamos a JS que esta función es asincrónica con "async"
+async function obtenerPokemon() {
+    
+    // 2. JS se frena aquí hasta que el servidor responda, y guarda el paquete en "respuesta"
+    let respuesta = await fetch("https://pokeapi.co/api/v2/pokemon/ditto");
+    
+    // 3. JS se frena aquí hasta que se abra el paquete, y guarda el objeto en "info"
+    let info = await respuesta.json();
+    
+    // 4. Como ya tenemos los datos, los usamos normalmente
+    console.log("El pokemon moderno es:", info.name);
+}
+
+// 5. Al final, mandamos a llamar a la función para que corra
+obtenerPokemon();
+
+/*Ejercicio 33 Try & Catch*/
+
+async function obtenerPokemonSeguro() {
+    // 1. "INTENTA" correr este código...
+    try {
+        let respuesta = await fetch("https://pokeapi.co/api/v2/pokemon/ditto");
+        let info = await respuesta.json();
+        console.log("El pokemon es:", info.name);
+    } 
+    // 2. Si CUALQUIERA de las líneas de arriba falla (se cae el internet, el endpoint está mal, etc.)...
+    catch (error) {
+        // 3. El código se salta de inmediato para acá y "ATRAPA" el fallo sin congelar la app
+        console.log("¡Rompimos algo o no hay internet!", error);
+    }
+}
+
+obtenerPokemonSeguro();
+
+
+/*Ejercicio 34 - Export & Import  - Lo que hace Export es decirle que la mande a otra hoja donde la vaya a necesitar y utilizar esa funcion
+e import es el otro que recive la señal del export para poder utilizarla y hacer lo que se quiera con esa funcion y utilizarla sin tener que tener
+todo en la misma hoja y hacerla muy grande, asi se distribuyen pequeñas funciones en diferentes hojas de JS para reutilizarse
+
+
+// Le pones "export" antes de la función para que se pueda compartir
+export function sumar(a, b) {
+    return a + b;
+}
+
+export function restar(a, b) {
+    return a - b;
+}
+
+JavaScript
+// Usas "import" entre llaves para traer solo lo que necesitas de ese archivo
+import { sumar, restar } from "./calculadora.js";
+
+console.log(sumar(5, 10)); // Imprime 15
+
+*/
+
+/*Ejercicio 35 - Repaso final de ejercicios sobre fetch, then, catch, try, Async, Await*/
+
+// 1. Creamos la función asincrónica principal
+async function tiendaRetro() {
+    try {
+        console.log("1. Conectando al servidor de videojuegos...");
+        
+        // [PASO A]: Trae los datos de internet usando fetch y espera la respuesta.
+        // Usa este endpoint de prueba: "https://jsonplaceholder.typicode.com/todos/1"
+        let respuesta = await fetch("https://jsonplaceholder.typicode.com/todos/1"); 
+        
+        let datos = await respuesta.json();
+        console.log("2. Conexión exitosa con el servidor.");
+
+        // --- Nuestro inventario de videojuegos antiguos ---
+        let inventarioRetro = [
+            { titulo: "Zelda: Wind Waker", precio: 1200 },
+            { titulo: "Pokémon Rojo", precio: 2500 },
+            { titulo: "Super Mario World", precio: 180 },
+            { titulo: "Tetris Classic", precio: 90 }
+        ];
+
+        console.log("3. Filtrando los juegos más valiosos...");
+
+        // [PASO B]: Usa .filter() para guardar en "juegosCaros" 
+        // solo los juegos que tengan un precio MAYOR a 500.
+        let juegosCaros = inventarioRetro.filter(function(cantidad){
+          return cantidad.precio > 500
+        });
+
+        console.log("--- JUEGOS DE COLECCIÓN ENCONTRADOS (Mayores a $500) ---");
+        
+        // [PASO C]: Completa el ciclo "for...of" para recorrer el arreglo "juegosCaros"
+        // e imprimirlos en la consola.
+        juegosCaros.forEach(cantidad => {
+          console.log(`Juego: ${cantidad.titulo} - Precio: $ ${cantidad.precio} MXN`);
+        })
+        
+
+    } catch (error) {
+        console.log("Error en el sistema de la tienda:", error);
+    }
+}
+
+// Ejecutamos la tienda
+tiendaRetro();
+
+</script>
