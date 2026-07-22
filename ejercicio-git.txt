@@ -1,5 +1,3 @@
 prueba de ejercicio de git
 nuevo cambio realizado
 un nuevo cambio desde git
-
-error de bugs
